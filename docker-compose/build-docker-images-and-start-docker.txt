@@ -1,0 +1,13 @@
+cd docker-compose/
+docker-compose rm -f -s -v
+docker rmi -f $(docker images -q)
+docker images
+docker build -t configuration-server configuration-server/
+docker build -t consumer-gateway consumer-gateway/
+docker build -t eureka-server eureka-server/
+docker build -t product-microservice product-microservice/
+docker build -t product-recipe-microservice product-recipe-microservice/
+docker images
+spd-say "ready to start"
+docker-compose up
+

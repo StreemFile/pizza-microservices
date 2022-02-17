@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/configuration-server/configuration-server.iml" filepath="$PROJECT_DIR$/configuration-server/configuration-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consumer-gateway/consumer-gateway.iml" filepath="$PROJECT_DIR$/consumer-gateway/consumer-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dish-microservice/dish-microservice.iml" filepath="$PROJECT_DIR$/dish-microservice/dish-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker-compose/docker-compose.iml" filepath="$PROJECT_DIR$/docker-compose/docker-compose.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-microservice/product-microservice.iml" filepath="$PROJECT_DIR$/product-microservice/product-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-recipe-microservice/product-recipe-microservice.iml" filepath="$PROJECT_DIR$/product-recipe-microservice/product-recipe-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shared/shared.iml" filepath="$PROJECT_DIR$/shared/shared.iml" />
+    </modules>
+  </component>
+</project>

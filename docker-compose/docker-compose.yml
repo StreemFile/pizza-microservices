@@ -1,0 +1,85 @@
+version: "3"
+services:
+  configuration-server:
+    container_name: configuration-server
+    build: configuration-server/
+    image: configuration-server:latest
+    expose:
+      - 8888
+    ports:
+      - 8888:8888
+    networks:
+      - spring-cloud-network
+    volumes:
+      - ./logs:/logs
+  eureka-server:
+    container_name: eureka-server
+    build: eureka-server/
+    image: eureka-server:latest
+    expose:
+      - 8761
+    ports:
+      - 8761:8761
+    networks:
+      - spring-cloud-network
+    volumes:
+      - ./logs:/logs
+    depends_on:
+      - configuration-server
+  product-microservice:
+    container_name: product-microservice
+    build: product-microservice/
+    image: product-microservice:latest
+    environment:
+      SPRING_APPLICATION_JSON: '{"spring": {"cloud": {"config": {"uri": "http://configuration-server:8888"}}}}'
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ec2-18-215-8-186.compute-1.amazonaws.com:5432/d9d2b57g58t178
+      SPRING_DATASOURCE_USERNAME: ohjrjawxatkvsc
+      SPRING_DATASOURCE_PASSWORD: c8fbf8689d34a762ee58c467fe81ea43ceeb05fffb8fb20a01439d5a9e47c96c
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - spring-cloud-network
+    volumes:
+      - ./logs:/logs
+    deploy:
+      mode: replicated
+      replicas: 3
+    depends_on:
+      - eureka-server
+    restart: always
+  product-recipe-microservice:
+    container_name: product-recipe-microservice
+    build: product-recipe-microservice/
+    image: product-recipe-microservice:latest
+    environment:
+      SPRING_APPLICATION_JSON: '{"spring": {"cloud": {"config": {"uri": "http://configuration-server:8888"}}}}'
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ec2-18-215-8-186.compute-1.amazonaws.com:5432/d9d2b57g58t178
+      SPRING_DATASOURCE_USERNAME: ohjrjawxatkvsc
+      SPRING_DATASOURCE_PASSWORD: c8fbf8689d34a762ee58c467fe81ea43ceeb05fffb8fb20a01439d5a9e47c96c
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - spring-cloud-network
+    volumes:
+      - ./logs:/logs
+    deploy:
+      mode: replicated
+      replicas: 3
+    depends_on:
+      - eureka-server
+    restart: always
+  consumer-gateway:
+    container_name: consumer-gateway
+    build: consumer-gateway/
+    image: consumer-gateway:latest
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    networks:
+      - spring-cloud-network
+    volumes:
+      - ./logs:/logs
+    depends_on:
+      - product-microservice
+networks:
+  spring-cloud-network:
+    driver: bridge

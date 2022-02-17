@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: product-recipe-microservice
+server:
+  port: 0
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
+    instance:
+      preferIpAddress: true
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

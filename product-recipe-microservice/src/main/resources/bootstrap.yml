@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: product-recipe-microservice
+  cloud:
+    config:
+      uri: http://eureka-server:8888
+      fail-fast: true
