@@ -17,6 +17,14 @@ cd product-microservice/
 mvn clean verify
 cp target/product-microservice-0.0.1-SNAPSHOT.jar ../docker-compose/product-microservice/product-microservice.jar
 cd ..
+cd dish-microservice/
+mvn clean verify
+cp target/dish-microservice-0.0.1-SNAPSHOT.jar ../docker-compose/dish-microservice/dish-microservice.jar
+cd ..
+cd employee-microservice/
+mvn clean verify
+cp target/employee-microservice-0.0.1-SNAPSHOT.jar ../docker-compose/employee-microservice/employee-microservice.jar
+cd ..
 cd product-recipe-microservice/
 mvn clean verify
 cp target/product-recipe-microservice-0.0.1-SNAPSHOT.jar ../docker-compose/product-recipe-microservice/product-recipe-microservice.jar

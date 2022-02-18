@@ -1,6 +1,6 @@
 package com.example.productrecipemicroservice.dao;
 
-import entity.ProductRecipeEntity;
+import entity.productrecipe.ProductRecipeEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import com.example.productrecipemicroservice.repository.ProductRecipeRepository;

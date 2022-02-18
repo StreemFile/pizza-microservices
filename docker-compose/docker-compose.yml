@@ -35,6 +35,26 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://ec2-18-215-8-186.compute-1.amazonaws.com:5432/d9d2b57g58t178
       SPRING_DATASOURCE_USERNAME: ohjrjawxatkvsc
       SPRING_DATASOURCE_PASSWORD: c8fbf8689d34a762ee58c467fe81ea43ceeb05fffb8fb20a01439d5a9e47c96c
+      SPRING_JPA_HIBERNATE_DDL_AUTO: none
+    networks:
+      - spring-cloud-network
+    volumes:
+      - ./logs:/logs
+    deploy:
+      mode: replicated
+      replicas: 1
+    depends_on:
+      - eureka-server
+    restart: always
+  employee-microservice:
+    container_name: employee-microservice
+    build: employee-microservice/
+    image: employee-microservice:latest
+    environment:
+      SPRING_APPLICATION_JSON: '{"spring": {"cloud": {"config": {"uri": "http://configuration-server:8888"}}}}'
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ec2-18-206-112-235.compute-1.amazonaws.com:5432/daks72tpu4pll4
+      SPRING_DATASOURCE_USERNAME: rwjunijtilgirt
+      SPRING_DATASOURCE_PASSWORD: d2fc15f3045a4e38ea8cd927bf2b7a8f6b824e5fd20d2e929fce7b865447b955
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     networks:
       - spring-cloud-network
@@ -42,7 +62,27 @@ services:
       - ./logs:/logs
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 1
+    depends_on:
+      - eureka-server
+    restart: always
+  dish-microservice:
+    container_name: dish-microservice
+    build: dish-microservice/
+    image: dish-microservice:latest
+    environment:
+      SPRING_APPLICATION_JSON: '{"spring": {"cloud": {"config": {"uri": "http://configuration-server:8888"}}}}'
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ec2-54-197-43-39.compute-1.amazonaws.com:5432/dbio42jpvrjk1g
+      SPRING_DATASOURCE_USERNAME: ebrzardqkgkbwe
+      SPRING_DATASOURCE_PASSWORD: 733ce75ca91408615eaaf94b83663163d1584c7b1140e310e94cec5a0f1537c6
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - spring-cloud-network
+    volumes:
+      - ./logs:/logs
+    deploy:
+      mode: replicated
+      replicas: 1
     depends_on:
       - eureka-server
     restart: always
@@ -52,9 +92,9 @@ services:
     image: product-recipe-microservice:latest
     environment:
       SPRING_APPLICATION_JSON: '{"spring": {"cloud": {"config": {"uri": "http://configuration-server:8888"}}}}'
-      SPRING_DATASOURCE_URL: jdbc:postgresql://ec2-18-215-8-186.compute-1.amazonaws.com:5432/d9d2b57g58t178
-      SPRING_DATASOURCE_USERNAME: ohjrjawxatkvsc
-      SPRING_DATASOURCE_PASSWORD: c8fbf8689d34a762ee58c467fe81ea43ceeb05fffb8fb20a01439d5a9e47c96c
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ec2-52-204-196-4.compute-1.amazonaws.com:5432/damrn2503sqc9m
+      SPRING_DATASOURCE_USERNAME: kdkznttzlkzuvh
+      SPRING_DATASOURCE_PASSWORD: 31b90d88674bd4b4ebd60ed898ffb242fe132d1205a62ece09c852874283a00b
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     networks:
       - spring-cloud-network
@@ -62,7 +102,7 @@ services:
       - ./logs:/logs
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 1
     depends_on:
       - eureka-server
     restart: always

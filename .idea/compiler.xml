@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="shared" />
+        <module name="employee-microservice" />
         <module name="product-recipe-microservice" />
         <module name="product-microservice" />
         <module name="configuration-server" />
@@ -20,6 +21,7 @@
       <module name="configuration-server" target="1.8" />
       <module name="consumer-gateway" target="1.8" />
       <module name="dish-microservice" target="1.8" />
+      <module name="employee-microservice" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="product-microservice" target="1.8" />
       <module name="product-recipe-microservice" target="1.8" />
@@ -30,6 +32,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="configuration-server" options="-parameters" />
       <module name="consumer-gateway" options="-parameters" />
+      <module name="dish-microservice" options="-parameters" />
+      <module name="employee-microservice" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="product-microservice" options="-parameters" />
       <module name="product-recipe-microservice" options="-parameters" />

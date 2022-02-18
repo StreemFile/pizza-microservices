@@ -7,6 +7,8 @@ docker build -t consumer-gateway consumer-gateway/
 docker build -t eureka-server eureka-server/
 docker build -t product-microservice product-microservice/
 docker build -t product-recipe-microservice product-recipe-microservice/
+docker build -t employee-microservice employee-microservice/
+docker build -t dish-microservice dish-microservice/
 docker images
 spd-say "ready to start"
 docker-compose up

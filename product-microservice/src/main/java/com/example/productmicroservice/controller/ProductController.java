@@ -2,7 +2,6 @@ package com.example.productmicroservice.controller;
 
 import com.example.productmicroservice.service.ProductService;
 import dto.ProductDto;
-import entity.ProductEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

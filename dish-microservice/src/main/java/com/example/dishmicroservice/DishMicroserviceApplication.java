@@ -1,6 +1,6 @@
 package com.example.dishmicroservice;
 
-import entity.DishEntity;
+import entity.dish.DishEntity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;

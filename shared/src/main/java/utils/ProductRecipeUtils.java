@@ -1,7 +1,7 @@
 package utils;
 
 import dto.ProductRecipeDto;
-import entity.ProductRecipeEntity;
+import entity.productrecipe.ProductRecipeEntity;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.Collections;

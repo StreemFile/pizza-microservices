@@ -1,7 +1,7 @@
 package com.example.productmicroservice.dao;
 
 import com.example.productmicroservice.repository.ProductRepository;
-import entity.ProductEntity;
+import entity.product.ProductEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -2,7 +2,7 @@ package utils;
 
 import dto.DishDto;
 import dto.ProductRecipeDto;
-import entity.DishEntity;
+import entity.dish.DishEntity;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.Collections;

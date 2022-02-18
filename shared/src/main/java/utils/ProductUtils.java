@@ -1,7 +1,7 @@
 package utils;
 
 import dto.ProductDto;
-import entity.ProductEntity;
+import entity.product.ProductEntity;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.time.LocalDate;
